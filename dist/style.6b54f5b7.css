@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.opacity {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(58, 58, 58, 0.3);
+}
+
+.wrapper {
+  position: absolute;
+  width: 65%;
+  height: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #120f2f, #2f2a61, #262542);
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  top: 0;
+}
+
+.spinner-container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.wheel {
+  transform: translateX(-28%);
+}
+
+.img-outline {
+  transform: scale(1.09) rotateZ(-20deg);
+}
+
+.img {
+  position: absolute;
+  top: 50.75%;
+  left: 50.6%;
+  transform: translate(-50%, -50%) scale(1.1);
+  max-width: 100%;
+  z-index: 0;
+}
+
+.z-index-4 {
+  z-index: 4;
+}
+
+.z-index-3 {
+  z-index: 3;
+}
+
+.marker {
+  position: absolute;
+  top: 42%;
+  left: 69%;
+  z-index: 5;
+  max-width: 130px;
+  max-height: 130px;
+}
+
+.content {
+  width: 80%;
+}
+
+.bg-light-green {
+  background-color: #9acd32;
+}
+
+.move-towards-left {
+  animation: moveTowardsLeft 1s linear 1 normal;
+}
+
+.move-outwards-left {
+  animation: moveOutwardsLeft 0.5s linear 1 normal;
+}
+
+.rotate {
+  animation: rotate 3s linear 0s infinite;
+}
+
+@keyframes moveTowardsLeft {
+  from {
+    transform: translateX(-94%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes moveOutwardsLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-94%);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: scale(1.09) rotateZ(0deg);
+  }
+  to {
+    transform: scale(1.09) rotateZ(360deg);
+  }
+}
+@media (max-width: 998px) {
+  .wrapper {
+    width: 100%;
+    padding: 0px 15px;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+@media (max-width: 560px) {
+  .wrapper {
+    position: static;
+  }
+
+  .opacity {
+    z-index: -1;
+  }
+
+  .marker {
+    top: 43%;
+    left: 69%;
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+
+/*# sourceMappingURL=/style.6b54f5b7.css.map */
