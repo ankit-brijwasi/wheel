@@ -3,7 +3,7 @@
 import axios from "axios";
 
 window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => spinner(), 3000);
+  setTimeout(() => spinner(), 4000);
 });
 
 const spinner = () => {
@@ -21,6 +21,27 @@ const spinner = () => {
   const row = document.createElement("div");
   row.classList.add("row");
   wrapper.appendChild(row);
+
+  // create the closing button
+  const closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.classList.add("close-spinner", "material-icons");
+
+  // create the closing icon
+  const closeIcon = document.createTextNode("close");
+  closeBtn.appendChild(closeIcon);
+
+  // close the spinner on button click
+  closeBtn.addEventListener("click", event => {
+    document.body.removeChild(opacity);
+    wrapper.classList.remove("move-towards-left");
+    wrapper.classList.add("move-outwards-left");
+    setTimeout(() => {
+      document.body.removeChild(wrapper);
+    }, 500);
+  });
+
+  wrapper.appendChild(closeBtn);
 
   // create first column
   const colFirst = document.createElement("div");
@@ -201,24 +222,6 @@ const spinner = () => {
   footer3.appendChild(footer3Text2);
 
   content.appendChild(footer3);
-
-  // create the closing button
-  // const closeBtn = document.createElement("button");
-  // closeBtn.classList.add("close-spinner", "material-icons");
-
-  // create the closing icon
-  // const closeIcon = document.createTextNode("close");
-  // closeBtn.appendChild(closeIcon);
-
-  // close the spinner on button click
-  // closeBtn.addEventListener("click", event => {
-  //   document.body.removeChild(opacity);
-  //   spinnerContainer.classList.remove("move-towards-left");
-  //   spinnerContainer.classList.add("move-outwards-left");
-  //   setTimeout(() => {
-  //     document.body.removeChild(spinnerContainer);
-  //   }, 500);
-  // });
 
   form.addEventListener("submit", event => {
     event.preventDefault();

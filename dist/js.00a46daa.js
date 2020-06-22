@@ -1890,7 +1890,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 window.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     return spinner();
-  }, 3000);
+  }, 4000);
 });
 
 var spinner = function spinner() {
@@ -1905,7 +1905,24 @@ var spinner = function spinner() {
 
   var row = document.createElement("div");
   row.classList.add("row");
-  wrapper.appendChild(row); // create first column
+  wrapper.appendChild(row); // create the closing button
+
+  var closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.classList.add("close-spinner", "material-icons"); // create the closing icon
+
+  var closeIcon = document.createTextNode("close");
+  closeBtn.appendChild(closeIcon); // close the spinner on button click
+
+  closeBtn.addEventListener("click", function (event) {
+    document.body.removeChild(opacity);
+    wrapper.classList.remove("move-towards-left");
+    wrapper.classList.add("move-outwards-left");
+    setTimeout(function () {
+      document.body.removeChild(wrapper);
+    }, 500);
+  });
+  wrapper.appendChild(closeBtn); // create first column
 
   var colFirst = document.createElement("div");
   colFirst.classList.add("col-12", "order-last", "order-sm-first", "col-sm-6");
@@ -2020,22 +2037,7 @@ var spinner = function spinner() {
   footer3.appendChild(footer3Text1);
   footer3.appendChild(br3);
   footer3.appendChild(footer3Text2);
-  content.appendChild(footer3); // create the closing button
-  // const closeBtn = document.createElement("button");
-  // closeBtn.classList.add("close-spinner", "material-icons");
-  // create the closing icon
-  // const closeIcon = document.createTextNode("close");
-  // closeBtn.appendChild(closeIcon);
-  // close the spinner on button click
-  // closeBtn.addEventListener("click", event => {
-  //   document.body.removeChild(opacity);
-  //   spinnerContainer.classList.remove("move-towards-left");
-  //   spinnerContainer.classList.add("move-outwards-left");
-  //   setTimeout(() => {
-  //     document.body.removeChild(spinnerContainer);
-  //   }, 500);
-  // });
-
+  content.appendChild(footer3);
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     wheelImg.classList.add("rotate"); // if (window.screen.width <= 9050) {
@@ -2093,7 +2095,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62155" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64073" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

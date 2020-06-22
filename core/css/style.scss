@@ -20,6 +20,7 @@ $boxShadow: rgba(0, 0, 0, 0.9);
 
 .wrapper {
   position: absolute;
+  padding-top: 19px;
   width: 65%;
   height: 100%;
   min-height: 100vh;
@@ -27,6 +28,20 @@ $boxShadow: rgba(0, 0, 0, 0.9);
   box-shadow: 2px 2px 15px $boxShadow;
   z-index: 2;
   top: 0;
+}
+
+.close-spinner {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.close-spinner:focus {
+  outline: none;
 }
 
 // spinner
@@ -133,6 +148,7 @@ $boxShadow: rgba(0, 0, 0, 0.9);
 @media (max-width: 560px) {
   .wrapper {
     position: static;
+    padding-top: 19px;
   }
   .opacity {
     z-index: -1;
@@ -142,5 +158,8 @@ $boxShadow: rgba(0, 0, 0, 0.9);
     left: 69%;
     max-width: 80px;
     max-height: 80px;
+  }
+  .close-spinner {
+    right: 15px;
   }
 }

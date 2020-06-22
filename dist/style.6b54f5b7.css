@@ -15,6 +15,7 @@
 
 .wrapper {
   position: absolute;
+  padding-top: 19px;
   width: 65%;
   height: 100%;
   min-height: 100vh;
@@ -22,6 +23,20 @@
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
   z-index: 2;
   top: 0;
+}
+
+.close-spinner {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.close-spinner:focus {
+  outline: none;
 }
 
 .spinner-container {
@@ -123,6 +138,7 @@
 @media (max-width: 560px) {
   .wrapper {
     position: static;
+    padding-top: 19px;
   }
 
   .opacity {
@@ -134,6 +150,10 @@
     left: 69%;
     max-width: 80px;
     max-height: 80px;
+  }
+
+  .close-spinner {
+    right: 15px;
   }
 }
 
