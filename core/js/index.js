@@ -226,16 +226,18 @@ const spinner = () => {
   form.addEventListener("submit", event => {
     event.preventDefault();
     wheelImg.classList.add("rotate");
-    // if (window.screen.width <= 9050) {
-    //   window.scrollTo(0, document.body);
-    //   console.log("hello");
-    // }
-    axios
-      .post(
-        `http://127.0.0.1:8000/spinner/${name.value}/${email.value}/${contact.value}`
-      )
+    axios({
+     url: "backend endpoint...",
+     data: {
+        name: name.value,
+        email: email.value, 
+        contact: contact.value
+     },
+     method: "POST"
+    })
       .then(response => {
-        if (response.data.generated) {
+        // couponGenerated is boolean which will be returned from the backend
+        if (response.data.couponGenerated) {
           wheelImg.style.transform = "scale(1.09)";
           wheelImg.style.transform = "scale(1.09) rotateZ(-20deg)";
           wheelImg.style.transition = "2s ease";
@@ -249,7 +251,6 @@ const spinner = () => {
             wheelImg.classList.remove("rotate");
           }, 3050);
         }
-        console.log(response.data);
       })
       .catch(error => {
         console.log(error.request);
